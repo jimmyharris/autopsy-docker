@@ -1,0 +1,15 @@
+---
+version: "3.9"
+services:
+  autopsy:
+    build: .
+    security_opt:
+      - seccomp:unconfined #optional
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    ports:
+      - 5800:5800
+    volumes:
+      - ./config:/config
